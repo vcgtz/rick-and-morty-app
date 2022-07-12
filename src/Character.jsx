@@ -23,7 +23,7 @@ const Character = (props) => {
   }
 
   return (
-    <div className="rounded-md border-2 flex items-stretch my-2">
+    <div className="rounded-md border border-gray-400 flex items-stretch my-2">
       <img
         className="w-36 h-36 rounded-l-md"
         src={image}
@@ -35,8 +35,8 @@ const Character = (props) => {
           </p>
           <p>{getStatusIcon()} {status}</p>
           <p>{getGenderIcon()} {gender}</p>
-          <p>{species} from <a className="text-orange-400" href="#">{origin.name}</a></p>
-          <p>Last Location: <a className="text-orange-400" href="#">{location.name}</a></p>
+          <p>{species} from <span className="text-orange-400">{origin.name}</span></p>
+          <p>Last Location: <span className="text-orange-400">{location.name}</span></p>
         </div>
        </div>
     </div>
