@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  content: "";
+  background: url('./icon.png');
+  background-repeat: repeat;
+  overflow-x: scroll;
+  z-index: -1;  
+}

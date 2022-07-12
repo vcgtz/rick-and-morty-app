@@ -1,9 +1,10 @@
 import { render } from 'react-dom';
 import CharacterList from './CharacterList.jsx';
+import Header from './Header.jsx';
 
 const App = () => (
   <div>
-    <h1 className="text-lg">Rick & Morty App</h1>
+    <Header />
     <CharacterList />
   </div>
 );

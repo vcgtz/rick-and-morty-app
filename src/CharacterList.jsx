@@ -16,7 +16,7 @@ const CharacterList = () => {
   };
 
   return (
-    <div className="w-1/2 mx-auto">
+    <div className="w-4/6 mx-auto">
       {
         characters.map((character) => (
           <Character

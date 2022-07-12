@@ -23,7 +23,7 @@ const Character = (props) => {
   }
 
   return (
-    <div className="rounded-md border border-gray-400 flex items-stretch my-2">
+    <div className="rounded-md border border-gray-400 flex items-stretch my-2 bg-white">
       <img
         className="w-36 h-36 rounded-l-md"
         src={image}
