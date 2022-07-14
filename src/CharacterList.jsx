@@ -1,20 +1,6 @@
-import { useEffect, useState } from 'react';
-import Character from "./Character.jsx";
+import Character from './Character.jsx';
 
-const CharacterList = () => {
-  const [characters, setCharacters] = useState([]);
-
-  useEffect(() => {
-    requestCharacters();
-  }, []);
-
-  const requestCharacters = async () => {
-    const res = await fetch('https://rickandmortyapi.com/api/character');
-    const json = await res.json();
-
-    setCharacters(json.results);
-  };
-
+const CharacterList = ({ characters }) => {
   return (
     <div className="w-4/6 mx-auto">
       {
