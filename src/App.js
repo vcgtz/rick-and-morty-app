@@ -10,8 +10,13 @@ const App = () => {
     requestCharacters();
   }, []);
 
-  const requestCharacters = async () => {
-    const res = await fetch('https://rickandmortyapi.com/api/character');
+  const requestCharacters = async (filters = {}) => {
+    let searchString = '';
+    if (Object.keys(filters).length) {
+      searchString = `?${new URLSearchParams(filters)}`;
+    }
+
+    const res = await fetch(`https://rickandmortyapi.com/api/character${searchString}`);
     const json = await res.json();
 
     setCharacters(json.results);
@@ -19,7 +24,7 @@ const App = () => {
 
   return (
     <div>
-      <Header />
+      <Header onClick={requestCharacters} />
       <CharacterList characters={characters} />
     </div>
   )

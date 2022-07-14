@@ -1,6 +1,6 @@
 const { default: SearchBar } = require("./SearchBar");
 
-const Header = () => {
+const Header = ({ onClick }) => {
   return (
     <header>
       <div className="w-4/6 mx-auto flex justify-between items-center">
@@ -10,7 +10,7 @@ const Header = () => {
           </h1>
         </div>
         <div className="w-1/2">
-          <SearchBar />
+          <SearchBar onClick={onClick} />
         </div>
       </div>
     </header>
