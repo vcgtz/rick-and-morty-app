@@ -6,7 +6,9 @@
     "dev": "parcel src/index.html",
     "format": "prettier --write 'src/**/*.{js,jsx}'",
     "format:check": "prettier --check 'src/**/*.{js,jsx}'",
-    "lint": "eslint 'src/**/*.{js,jsx}' --quiet"
+    "lint": "eslint 'src/**/*.{js,jsx}' --quiet",
+    "pre-deploy": "parcel build src/index.html --public-url ./ --dist-dir ./",
+    "deploy": "git add -A && git commit -m 'Deploy app' && git push origin gh-pages"
   },
   "author": "Vicente Gutierrez <vcgtz>",
   "license": "MIT",
