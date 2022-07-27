@@ -9,7 +9,7 @@
     "lint": "eslint 'src/**/*.{js,jsx}' --quiet",
     "clear-cache": "rm -r dist && rm -r .parcel-cache",
     "clear-prod-files": "rm -rf .parcel-cache && rm index.*.{css,js} index.*.{css,js}.map icon.* index.html",
-    "pre-deploy": "parcel build src/index.html --public-url ./ --dist-dir ./",
+    "pre-deploy": "parcel build src/index.html --public-url ./ --dist-dir ./ --no-cache",
     "deploy": "git add -A && git commit -m 'Deploy app' && git push origin gh-pages"
   },
   "author": "Vicente Gutierrez <vcgtz>",
