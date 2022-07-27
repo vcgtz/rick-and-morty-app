@@ -4,6 +4,8 @@ App made using ReactJS to search every single character from Rick and Morty.
 ## How does this app look like?
 <img width="1170" alt="image" src="https://user-images.githubusercontent.com/55886451/178894070-2dd40c12-e930-4a8f-ad76-8d231c90c770.png">
 
+:globe_with_meridians: [https://vcgtz.github.io/rick-and-morty-app/](https://vcgtz.github.io/rick-and-morty-app/) 
+
 ## Install and run it by yourself
 1. Clone this project
 ```bash
