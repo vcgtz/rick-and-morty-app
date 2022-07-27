@@ -19,7 +19,9 @@ const App = () => {
       searchString = `?${new URLSearchParams(filters)}`;
     }
 
-    const res = await fetch(`https://rickandmortyapi.com/api/character${searchString}`);
+    const res = await fetch(
+      `https://rickandmortyapi.com/api/character${searchString}`
+    );
     const json = await res.json();
 
     setShowLoading(false);
@@ -31,7 +33,7 @@ const App = () => {
       <Header onClick={requestCharacters} showLoading={showLoading} />
       <CharacterList characters={characters} />
     </div>
-  )
+  );
 };
 
 render(<App />, document.getElementById('root'));
