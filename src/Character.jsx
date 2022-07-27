@@ -23,7 +23,7 @@ const Character = ({ info }) => {
   };
 
   return (
-    <div className="rounded-md border border-gray-400 flex items-stretch my-2 bg-white">
+    <div className="rounded-md border border-gray-400 flex items-stretch my-2 bg-white hover:bg-gray-50 cursor-pointer">
       <img className="w-36 h-36 rounded-l-md" src={image} alt={name} />
       <div className="p-2 w-full">
         <div className="grid grid-cols-1">
