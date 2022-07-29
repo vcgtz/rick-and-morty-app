@@ -1,8 +1,8 @@
-const Paginator = ({ navigation, onClick }) => {
+const Paginator = ({ navigation, showCharacterList, onClick }) => {
   const { prev, next } = navigation;
 
   const handleNextClick = () => {
-    if (!next) {
+    if (!showCharacterList || !next) {
       return;
     }
 
@@ -10,7 +10,7 @@ const Paginator = ({ navigation, onClick }) => {
   };
 
   const handlePrevClick = () => {
-    if (!prev) {
+    if (!showCharacterList || !prev) {
       return;
     }
 
@@ -20,19 +20,19 @@ const Paginator = ({ navigation, onClick }) => {
   return (
     <div className="flex justify-center my-4">
       <button
-        disabled={!prev}
+        disabled={!showCharacterList || !prev}
         onClick={handlePrevClick}
         className={`mx-4 font-bold text-cyan-500 border bg-white rounded-sm p-2 active:bg-gray-100 active:border-cyan-500 ${
-          !prev ? 'cursor-not-allowed text-gray-200' : ''
+          !showCharacterList || !prev ? 'cursor-not-allowed text-gray-200' : ''
         }`}
       >
         Prev
       </button>
       <button
-        disabled={!next}
+        disabled={!showCharacterList || !next}
         onClick={handleNextClick}
         className={`mx-4 font-bold text-cyan-500 border bg-white rounded-sm p-2 active:bg-gray-100 active:border-cyan-500 ${
-          !next ? 'cursor-not-allowed text-gray-200' : ''
+          !showCharacterList || !next ? 'cursor-not-allowed text-gray-200' : ''
         }`}
       >
         Next
