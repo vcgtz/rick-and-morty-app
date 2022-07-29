@@ -21,10 +21,11 @@ const App = () => {
       searchString = `?${new URLSearchParams(filters)}`;
     }
 
-    const url = requestUrl || `https://rickandmortyapi.com/api/character${searchString}`;
+    const url =
+      requestUrl || `https://rickandmortyapi.com/api/character${searchString}`;
     const res = await fetch(url);
     const json = await res.json();
-    
+
     setNavigation({ prev: json.info.prev, next: json.info.next });
     setShowLoading(false);
     setCharacters(json.results);
