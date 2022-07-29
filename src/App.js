@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import { render } from 'react-dom';
 import CharacterList from './CharacterList.jsx';
 import Header from './Header.jsx';
+import NotFoundMessage from './NotFoundMessage.jsx';
 import Paginator from './Paginator.jsx';
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
   const [showLoading, setShowLoading] = useState(true);
   const [navigation, setNavigation] = useState({ prev: null, next: null });
+  const [showCharacterList, setShowCharacterList] = useState(true);
 
   useEffect(() => {
     requestCharacters();
@@ -23,19 +25,33 @@ const App = () => {
 
     const url =
       requestUrl || `https://rickandmortyapi.com/api/character${searchString}`;
-    const res = await fetch(url);
-    const json = await res.json();
+    
+    try {
+      const res = await fetch(url);
+      const json = await res.json();
 
-    setNavigation({ prev: json.info.prev, next: json.info.next });
-    setShowLoading(false);
-    setCharacters(json.results);
+      setShowLoading(false);
+      setNavigation({ prev: json.info.prev, next: json.info.next });
+      setCharacters(json.results);
+      setShowCharacterList(true);
+    } catch (err) {
+      setShowLoading(false);
+      setShowCharacterList(false);
+    }
   };
 
   return (
     <div>
       <Header onClick={requestCharacters} showLoading={showLoading} />
-      <CharacterList characters={characters} />
-      <Paginator navigation={navigation} onClick={requestCharacters} />
+      {(
+        showCharacterList ?
+        <CharacterList characters={characters} /> :
+        <NotFoundMessage />
+      )}
+      <Paginator
+        navigation={navigation}
+        showCharacterList={showCharacterList}
+        onClick={requestCharacters} />
     </div>
   );
 };
