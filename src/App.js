@@ -13,7 +13,7 @@ const App = () => {
     requestCharacters();
   }, []);
 
-  const requestCharacters = async (filters = {}) => {
+  const requestCharacters = async (filters = {}, requestUrl = null) => {
     setShowLoading(true);
 
     let searchString = '';
@@ -21,9 +21,8 @@ const App = () => {
       searchString = `?${new URLSearchParams(filters)}`;
     }
 
-    const res = await fetch(
-      `https://rickandmortyapi.com/api/character${searchString}`
-    );
+    const url = requestUrl || `https://rickandmortyapi.com/api/character${searchString}`;
+    const res = await fetch(url);
     const json = await res.json();
     
     setNavigation({ prev: json.info.prev, next: json.info.next });
@@ -35,7 +34,7 @@ const App = () => {
     <div>
       <Header onClick={requestCharacters} showLoading={showLoading} />
       <CharacterList characters={characters} />
-      <Paginator navigation={navigation} />
+      <Paginator navigation={navigation} onClick={requestCharacters} />
     </div>
   );
 };
